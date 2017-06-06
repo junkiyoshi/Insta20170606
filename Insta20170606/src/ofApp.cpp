@@ -4,7 +4,7 @@
 void ofApp::setup(){
 	ofSetFrameRate(60);
 	ofBackground(0);
-	ofSetWindowTitle("20170606");
+	ofSetWindowTitle("20170607");
 
 
 	this->noise_x = ofRandom(10);
@@ -29,21 +29,21 @@ void ofApp::draw(){
 
 	this->cam.begin();
 
-	//ofRotateY(90);
+	ofRotateX(90);
 
 	float x, y, z;
 	float noise_value = 0.1;
 
-	for (int i = 0; i < 2; i++) {
-		ofRotateY(45);
+	for (int i = 0; i < 4; i++) {
+		ofRotateY(22.5);
 
-		ofSetColor(0, 255, 0);
+		ofSetColor(255, 255, i * 255);
 
 		float tmp_noise_x = this->noise_x;
 		float tmp_noise_y = this->noise_y;
 		float tmp_noise_z = this->noise_z;
 		ofVec3f tmp_position = ofVec3f(0, 0, 0);
-
+		
 		for (float len = ofGetWidth(); len > 0; len -= 20) {
 
 			x = len * ofMap(ofNoise(tmp_noise_x), 0, 1, 0, 0.5);
